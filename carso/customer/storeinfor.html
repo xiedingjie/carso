@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>汽车系统——信管一班饶烨小组</title> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/province.js"></script>
+	</head>
+	<style>
+	*{
+		margin:0;
+		padding: 0;
+	}
+	a:hover{
+		color:#fff;
+	}
+	.r-header{
+		height: 50px;
+	}
+	.r-login{
+		float: right;
+
+	}
+	.r-login img{
+		width: 100px;
+		height: 30px;
+		margin-top: 10px;
+		border: 0;
+		background-color: #37BCAF;
+		color: #fff;
+	}
+	hr{
+		border:none;border:5px solid #37BCAF;
+		margin:0;
+	}
+	/*二期修改 无关修改，增加辨别，避免影响新样式*/
+	.nav-pills .active{
+		background-color: #37BCAF;
+	}
+	.nav-pills li a:hover{
+		background-color: #37BCAF;
+	}
+	.input-border{
+		border-color: red;
+	}
+	/*修改结束*/
+	.inputstyle{
+		width: 300px;
+		height: 35px;
+		font-size: 18px;
+	}
+	.si-content{
+		margin-top: 50px;
+		margin-left: 50px;
+	}
+	.si-content label{
+		width: 100px;
+		height: 50px;
+		font-size: 20px;
+	}
+	.si-city select{
+		width: 120px;
+		height: 35px;
+		margin-right: 56px;
+	}
+	.si-done{
+		width: 400px;
+		text-align: center;
+	}
+	.si-done input{
+		width: 200px;
+		height: 35px;
+		border: 0px;
+		background-color: #37BCAF;
+		color: #fff;
+		letter-spacing:10px;
+		font-size:18px;
+		
+	}
+	/*.bc{
+		margin-top: 60px;
+		width:22%;
+		background-color: #424242;
+		position: absolute;
+		left: 0;
+	}*/
+	</style>
+<body>
+	<!-- <div class='bc' style='height:519px;'></div> -->
+	<div class='r-header'>
+		<div class='container'>
+			<span style='line-height:50px;font-size:30px;color:#37BCAF'> Car · so</span>
+			<div class='r-login'>
+				<!-- <span >已有Car · so 账号？</span> -->
+				<a href="#"><img src="../images2/mymall.png" alt="" /></a>
+				<a href="#"><img src="../images2/logout.png" alt="" /></a>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="container" style="margin-top: 20px;">
+		<div class="row">
+			<ul class="nav nav-pills nav-stacked col-md-2">
+				<li role="presentation" style='font-size:20px;'>我的CAR·SO</li>
+				<li role="presentation"><a href="#" class="active">店铺资料</a></li>
+				<li role="presentation"><a href="busipic.html">营业执照</a></li>
+				<li role="presentation"><a href="fixpic.html">汽修许可证</a></li>
+				<li role="presentation"><a href="mountpic.html">修理上岗证</a></li>
+				<li role="presentation"><a href="storeshow.html">店铺图片展示</a></li>
+			</ul>
+			<div class="col-md-10">
+				<form action="#" name='form'>
+					<div class='si-content'>
+						<div class='si-username'>
+							<label for="storename">店铺名称</label>
+							<input type="text" name='storename' id='storename' class='inputstyle' placeholder=''/>
+						</div>
+						<div class='si-tel'>
+							<label for="tel">联系电话</label>
+							<input type="text" name='tel' id='tel' class='inputstyle' placeholder=''/>
+						</div>
+						<!-- 二期修改  开始 -->
+						<div class='si-service'>
+							<label style='float:left'>服务类型</label>
+							<ul id='service-tab' class='nav nav-tabs'>
+								<li class='active'>
+									<a href="#look" data-toggle="tab">
+										汽车美容
+									</a>
+								</li>
+								<li>
+									<a href="#maintenance" data-toggle="tab">
+										维修项目
+									</a>
+								</li>
+							</ul>
+							<div id='service-tab-content' class="tab-content">
+								<div class="tab-pane fade in active" id="look">
+									<div class='row'>
+										<div class='col-md-2'></div>
+										<div class='col-md-10'>
+											<div class='row'>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="新车开蜡" >新车开蜡
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="汽车封釉美容" style=''>汽车封釉美容
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="漆面打蜡" style=''>漆面打蜡
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="漆面抛光" style=''>漆面抛光
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="底盘装甲" style=''>底盘装甲
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="汽车内饰桑拿" style=''>汽车内饰桑拿
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="汽车漆面划痕修复" style=''>汽车漆面划痕修复
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="车内真皮制品的护理" style=''>车内真皮制品的护理
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="光触媒内室杀菌消毒" style=''>光触媒内室杀菌消毒
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="轮胎翻新" style=''>轮胎翻新
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="车身彩贴" style=''>车身彩贴
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="汽车内部装饰" style=''>汽车内部装饰
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="汽车防爆膜" style=''>汽车防爆膜
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="安装倒车雷达" style=''>安装倒车雷达
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="中央门锁" style=''>中央门锁
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="全球卫星定位系统(GPS)" style=''>全球卫星定位系统(GPS)
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="汽车隔音" style=''>汽车隔音
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="真皮座椅" style=''>真皮座椅
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换音响" style=''>更换音响
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="洗车" style=''>洗车
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="防盗器" style=''>防盗器
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+							    </div>
+							    <div class="tab-pane fade" id="maintenance">
+									<div class='row'>
+										<div class='col-md-2'></div>
+										<div class='col-md-10'>
+											<div class='row'>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="补胎" >补胎
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换轮胎" style=''>更换轮胎
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="四轮定位" style=''>四轮定位
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换机油" style=''>更换机油
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换刹车片" style=''>更换刹车片
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换挡风玻璃" style=''>更换挡风玻璃
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换避震器" style=''>更换避震器
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换摆臂" style=''>更换摆臂
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换喇叭" style=''>更换喇叭
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换电池" style=''>更换电池
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换玻璃升降器" style=''>更换玻璃升降器
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换机脚胶" style=''>更换机脚胶
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换雨刷" style=''>更换雨刷
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换水箱" style=''>更换水箱
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换排气管" style=''>更换排气管
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换大灯" style=''>更换大灯
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换尾灯" style=''>更换尾灯
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换火嘴" style=''>更换火嘴
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换后视镜" style=''>更换后视镜
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="更换汽油泵" style=''>更换汽油泵
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+												<div class='col-md-4'>
+													<input type="checkbox" name="1" value="检修冷气" style=''>检修冷气
+													<span style='display:none'>
+														<input type="text" class='less' name='1less' style='width:30px'/>
+														<span>-</span>
+														<input type="text" class='more' name='1more' style='width:30px'/>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+							    </div>
+							</div>
+						</div>
+						<!-- 二期修改 结束 -->
+						<div class='si-suggest'>
+							<label for="suggest">店铺简介</label>
+							<textarea name="suggest" id="suggest" cols="80" rows="3" style='vertical-align:middle;resize : none;'></textarea>
+						</div>
+						<div class='si-city'>
+							<label for="city">所在城市</label>
+							<select name="selectp" onChange="selectcityarea('selectp','selectc','form');">
+								<option value="0" selected>请选择 
+						    </select>
+						    <select name="selectc">
+								<option value="0" selected>请选择
+							</select>
+							<input type="text" class='inputstyle' />
+						</div>
+						<div class='si-done'>
+							<a href=""><input type="button" value='更新资料' id='send'/></a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer style="background-color:#424242;width:100%;height:20px;position:fixed;bottom:0px;">
+			<div style="text-align:center;color:#fff">Copyright @ 2016 信息管理与信息系统一班——汽车服务搜索系统　All right Reserved</div>
+	</footer>
+</body>
+<script>
+	first("selectp","selectc","form",0,0);
+
+
+	// 二期修改  开始
+	// 汽车美容
+	$('#look input:checkbox').click(function(){
+		if (this.checked) {
+			$(this).next().show();
+		}else{
+			$(this).next().hide();
+		}
+	})
+	// 汽车维修
+	$('#maintenance input:checkbox').click(function(){
+		if (this.checked) {
+			$(this).next().show();
+		}else{
+			$(this).next().hide();
+		}
+	})
+
+
+	$('input.more').blur(function(){
+		if (($(this).val())<($(this).prev().prev().val())) {
+			$(this).prev().prev().addClass('input-border');
+			$(this).addClass('input-border');
+		};
+		if ($(this).prev().prev().val()=='') {
+			$(this).addClass('input-border');
+			$(this).prev().prev().addClass('input-border');
+		};
+	})
+	// 二期修改 结束
+</script>
+</html>

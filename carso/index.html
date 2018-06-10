@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>汽车系统——信管一班饶烨小组</title> 
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link href="css/zoomer.css" rel="stylesheet" type="text/css" />
+		<!-- 引进省份js -->
+		<script type="text/javascript" src="js/province.js"></script>
+		<!-- 引进图片放大js -->
+		<script type="text/javascript" src="js/zoomer.js"></script> 
+	</head>
+	<style>
+	.logintop{
+		float: right;
+	}
+	.nav{
+		line-height: 44px;
+	}
+	.cs-logo{
+		margin-top: 20px;
+	}
+	.cs-cloud{
+		margin-top: 30px;
+	}
+	.cs-cloud img{
+		margin-left: 100px;
+	}
+	.cs-footer{
+		position: relative;
+		/*position: fixed;
+		bottom: 0*/
+	}
+	.search_bac{
+		background-color:#424242;
+		width:100%;
+		height:100%;
+		position:absolute;
+		top:0;
+		background:rgba(0,0,0,0.6); 
+	}
+	/*二期修改*/
+	.result{
+		margin-top: 20px;
+	}
+	/*二期修改*/
+	.shop{
+		margin-top:20px;
+	}
+	.shop-name{
+		font-size: 20px;
+		margin-left: 10%;
+	}
+	.shop-comment{
+		float: right;
+		margin-right: 5%;
+		margin-top: 10px;
+		color:#CE8943;
+	}
+	.shop-infor p{
+		margin-top: 20px;
+		margin-left: 5%;
+	}
+	table select{
+		width: 130px;
+	}
+	/*新增*/
+	.clfy{
+		border:1px solid #D4D4D4;
+		padding: 5px;
+	}
+	/*结束新增*/
+	</style>
+	<body>
+		<div style="background-color:#424242;width:100%;height:20px;">
+			<div class='container'>
+				<div class='row'>
+					<div class='col-md-3 col-xs-5'>
+						<div style="color:#fff">你好！欢迎来到car so</div>
+					</div>
+					<div class='col-md-7 col-xs-2'></div>
+					<div class='col-md-2 col-xs-5' style="color:#fff;">
+						<span>用户登录</span>
+						<span>|</span>
+						<span>商家登录</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<header style='background-color: #0082FF;'>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7 cs-logo">
+						
+					</div>
+					<div  class="col-md-5 cs-cloud " >
+						<img src="images/cloud.png" width="30%"   >
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="content" style='background-color: #0082FF;'>
+			<div class="container">
+				<div class="row">
+					<!-- <div class="col-md-2"></div> -->
+					<div class="col-md-6 cs-pic1" style='margin-top:-40px;'>
+						<img src="images/pic1.png" width="70%"  >
+					</div>
+					<!-- <div  class="visible-xs"  >
+						<div style="margin-left:40px;color:#fff">
+							<p style="font-size:30px;">汽车服务搜索平台</p>
+						</div>
+					</div> -->
+					<div  class="col-md-6"  style="margin-top:50px; ">
+						<div style="color:#fff">
+							<p style="font-size:30px;">汽车服务搜索平台</p>
+							<br />
+							<br />
+							<p>还在为找不到汽车修理商犯愁么？？</p>
+							<p>　car · so 一站式为你服务</p>
+						</div>
+					</div>
+					<div class="col-md-4" style="z-index:999">
+					</div>			
+				</div>
+			</div>
+		</div>
+		<footer class="cs-footer">
+			<img src="images/footer.png" width="100%" />
+			<div class='search_bac'>
+				<div class='container' style='height:100%' >
+					<div class='row' style='height:100%'>
+						<form action="" method=post name=form style='height:100%'>
+							<div class='col-md-1'></div>
+							<div class='col-md-2 col-xs-2' style='height:100%;' >
+								<!-- <span style='color:#fff;font-size:30px;display:inline-block;vertical-align:middle'>搜索商家</span> -->
+								<table style='height:100%;color:#fff;font-size:20px;'>
+										<td>商家搜索</td>
+								</table>
+							</div>
+							<div class='col-md-3 col-xs-4' style='height:100%'>
+								<table style='height:100%;font-size:20px;'>
+									<td style='color:#fff'>所在省份　</td>
+									<td>
+										<select name="selectp" onChange="selectcityarea('selectp','selectc','form');">
+										    <option value="0" selected>请选择 
+									    </select>
+									</td>
+								</table>
+							</div>
+							<div class='col-md-3 col-xs-4' style='height:100%'>
+								<table style='height:100%;font-size:20px;'>
+									<td style='color:#fff'>所在城市　</td>
+									<td>
+										<select name="selectc">
+										   <option value="0" selected>请选择
+										</select>
+									</td>
+								</table>
+							</div>
+							<div class='col-md-1'></div>
+							<div class='col-md-2 col-xs-2' style='height:100%'>
+								<table style='height:100%;font-size:20px;'>
+									<td>
+										<button style='background-color:#1DD2AF;border:0;width:90px;height:30px;'>搜索</button>
+									</td>
+								</table>
+							</div>
+					    </form>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- 二期新增 开始 -->
+		<div style='background-color:#EFEFEF'>
+			<div class='container'>
+				<span>所有分类</span>
+				<div class='clfy'>
+					<div class='row'>
+						<div class='col-md-1'>汽车美容</div>
+						<div class='col-md-11'>
+							<div class='row'>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="新车开蜡" >新车开蜡
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="汽车封釉美容" >汽车封釉美容
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="漆面打蜡" >漆面打蜡
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="漆面抛光" >漆面抛光
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="底盘装甲" >底盘装甲
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="汽车内饰桑拿" >汽车内饰桑拿
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="汽车漆面划痕修复" >汽车漆面划痕修复
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="车内真皮制品的护理" >车内真皮制品的护理
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="光触媒内室杀菌消毒" >光触媒内室杀菌消毒
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="轮胎翻新" >轮胎翻新
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="车身彩贴" >车身彩贴
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="汽车内部装饰" >汽车内部装饰
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="汽车防爆膜" >汽车防爆膜
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="安装倒车雷达" >安装倒车雷达
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="中央门锁" >中央门锁
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="防盗器" >防盗器
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="GPS" >GPS
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="汽车隔音" >汽车隔音
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="真皮座椅" >真皮座椅
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换音响" >更换音响
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="洗车" >洗车
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='row' style='margin-top:20px'>
+						<div class='col-md-1'>维修项目</div>
+						<div class='col-md-11'>
+							<div class='row'>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="补胎" >补胎
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换轮胎" >更换轮胎
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="四轮定位" >四轮定位
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换机油" >更换机油
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换刹车片" >更换刹车片
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换挡风玻璃" >更换挡风玻璃
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="检修冷气" >检修冷气
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换避震器" >更换避震器
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换摆臂" >更换摆臂
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换喇叭" >更换喇叭
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换电池" >更换电池
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换玻璃升降器" >更换玻璃升降器
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换机脚胶" >更换机脚胶
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换雨刷" >更换雨刷
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换水箱" >更换水箱
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换排气管" >更换排气管
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换大灯" >更换大灯
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换尾灯" >更换尾灯
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换火嘴" >更换火嘴
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换后视镜" >更换后视镜
+								</div>
+								<div class='col-md-2'>
+									<input type="checkbox" name="1" value="更换汽油泵" >更换汽油泵
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-- 按钮开始 -->
+		<div style='width:100%;background-color:#FAFAFA'>
+			<div class='container'>
+				<div class="btn-group" data-toggle="buttons">
+				   <label class="btn btn-primary" style='background-color:#FAFAFA;border-color:#FAFAFA;color:#000'>
+				      <input type="checkbox"> &nbsp;&nbsp;点击量&nbsp;&nbsp;
+				   </label>
+				   <label class="btn btn-primary" style='background-color:#FAFAFA;border-color:#FAFAFA;color:#000'>
+				      <input type="checkbox"> 用户评分
+				   </label>
+				   <label class="btn btn-primary" style='background-color:#FAFAFA;border-color:#FAFAFA;color:#000'>
+				      <input type="checkbox"> 　价格　
+				      <input type="text" style='width:40px'/>
+				      ~
+				      <input type="text" style='width:40px'/>
+				   </label>
+				</div>
+			</div>
+		</div>
+		<!-- 按钮结束 -->
+		<!-- 二期新增 结束 -->
+		<div class='result'>
+			<div class='container'>
+				<div class='row'>
+					<div class='col-md-4 col-xs-6'>
+						<div style='border:2px solid #C0C0C0;margin-bottom:20px;'>
+							<img src="images/show1.jpg" alt="" width='100%'/>
+							<div class='shop'>
+								<span class='shop-name'>红星修理厂</span>
+								<span class='shop-comment'>123 人评价</span>
+								<div class='shop-infor'>
+									<p>服务范围：汽车维修 汽车保养 汽车喷漆</p>
+									<p>商家地址：湖南省湘潭市雨湖区湘潭大学南门对面</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='col-md-4 col-xs-6'>
+						<div style='border:2px solid #C0C0C0;margin-bottom:20px;'>
+							<img src="images/show2.jpg" alt="" width='100%'/>
+							<div class='shop'>
+								<span class='shop-name'>橙星修理厂</span>
+								<span class='shop-comment'>123 人评价</span>
+								<div class='shop-infor'>
+									<p>服务范围：汽车维修 汽车保养 汽车喷漆</p>
+									<p>商家地址：湖南省湘潭市雨湖区湘潭大学南门对面</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='col-md-4 col-xs-6'>
+						<div style='border:2px solid #C0C0C0;margin-bottom:20px;'>
+							<img src="images/show3.jpg" alt="" width='100%'/>
+							<div class='shop'>
+								<span class='shop-name'>黄星修理厂</span>
+								<span class='shop-comment'>123 人评价</span>
+								<div class='shop-infor'>
+									<p>服务范围：汽车维修 汽车保养 汽车喷漆</p>
+									<p>商家地址：湖南省湘潭市雨湖区湘潭大学南门对面</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='col-md-4 col-xs-6'>
+						<div style='border:2px solid #C0C0C0;margin-bottom:20px;'>
+							<img src="images/show4.jpg" alt="" width='100%'/>
+							<div class='shop'>
+								<span class='shop-name'>绿星修理厂</span>
+								<span class='shop-comment'>123 人评价</span>
+								<div class='shop-infor'>
+									<p>服务范围：汽车维修 汽车保养 汽车喷漆</p>
+									<p>商家地址：湖南省湘潭市雨湖区湘潭大学南门对面</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='col-md-4 col-xs-6'>
+						<div style='border:2px solid #C0C0C0;margin-bottom:20px;'>
+							<img src="images/show5.jpg" alt="" width='100%'/>
+							<div class='shop'>
+								<span class='shop-name'>青星修理厂</span>
+								<span class='shop-comment'>123 人评价</span>
+								<div class='shop-infor'>
+									<p>服务范围：汽车维修 汽车保养 汽车喷漆</p>
+									<p>商家地址：湖南省湘潭市雨湖区湘潭大学南门对面</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='col-md-4 col-xs-6'>
+						<div style='border:2px solid #C0C0C0;margin-bottom:20px;'>
+							<img src="images/show6.jpg" alt="" width='100%'/>
+							<div class='shop'>
+								<span class='shop-name'>蓝星修理厂</span>
+								<span class='shop-comment'>123 人评价</span>
+								<div class='shop-infor'>
+									<p>服务范围：汽车维修 汽车保养 汽车喷漆</p>
+									<p>商家地址：湖南省湘潭市雨湖区湘潭大学南门对面</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='contact' style='background-color: #0082FF;'>
+			<img src="images/blue.png" alt="" width='100%' draggable='false' />
+		</div>
+		<div class='bottom' style='background-color:#0082FF'>
+			<div class='container'>
+				<div class='row'>
+					<div class='col-md-2'></div>
+					<div class='col-md-3 col-xs-3'><img src="images/logo2.png" alt="" /></div>
+					<div class='container'>
+						<div class='row'>
+							<div class='col-md-7 col-xs-9' style='margin-top:10px;'>
+								Copyright @ 2016 信息管理与信息系统一班——汽车服务搜索系统　All right Reserved
+							<br />
+							<br />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script language="javascript">
+	first("selectp","selectc","form",0,0);
+</script>
+</html>
